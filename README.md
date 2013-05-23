@@ -1,6 +1,11 @@
 # grunt-qunit-minimalist [![Build Status](https://travis-ci.org/gotdibbs/grunt-qunit-minimalist.png?branch=master)](https://travis-ci.org/gotdibbs/grunt-qunit-minimalist)
 
-> Minimalist phantomjs-based qunit test runner. Runs your QUnit test host page file without a server like `connect`.
+> Minimalist phantomjs-based qunit test runner. Runs your QUnit test host page file without depending on a server like `connect`, also keeps results displayed in console to a minimum. Only failures are reported visually along with a summary.
+
+![Success Screenshot](https://raw.github.com/gotdibbs/grunt-qunit-minimalist/master/sucess.png)
+
+![Failure Screenshot](https://raw.github.com/gotdibbs/grunt-qunit-minimalist/master/failure.png)
+
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
