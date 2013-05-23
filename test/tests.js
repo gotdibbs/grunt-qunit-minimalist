@@ -29,7 +29,7 @@ exports.nodeunit = (function (){
         test.ok(task.options, 'Options should exist.');
         test.ok(task.options.phantomOptions, 'Phantom Options should exist.');
         test.strictEqual(task.options.page, null, 'Page should be null.');
-        test.strictEqual(task.options['qunit-filter'], null, 'QUnit Filters should default to null.');
+        test.strictEqual(task.options.parameters, null, 'Host parameters should default to null.');
         test.done();
     }
     

@@ -80,7 +80,7 @@ _.extend(QUnitMinimalist.prototype, (function () {
     function setOptions(task) {
         this.options = task.options({
             page: null,
-            'qunit-filter': null,
+            parameters: null,
             phantomOptions: { }
         });
     }
@@ -99,8 +99,8 @@ _.extend(QUnitMinimalist.prototype, (function () {
             options.phantomOptions.inject = path.join(__dirname, '../includes', 'qunit-bridge.js');
         }
 
-        if (options['qunit-filter']) {
-            options.page += (options.page.indexOf('?') === -1 ? '?' : '&') + 'filter=' + options['qunit-filter'];
+        if (options.parameters) {
+            options.page += (options.page.indexOf('?') === -1 ? '?' : '&') + options.parameters;
         }
         
         phantomjs.on('qunit.done', onQunitDone.bind(self));
