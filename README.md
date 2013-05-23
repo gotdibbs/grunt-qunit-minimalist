@@ -65,3 +65,6 @@ An object representing options to be passed to `grunt-lib-phantomjs` and thus su
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+
+## License
+This library is licensed under the MIT License. Portions of this code were taken and/or inspired by the [grunt-contrib-qunit](https://github.com/gruntjs/grunt-contrib-qunit) and the [grunt-qunit-serverless](https://github.com/jgable/grunt-qunit-serverless) tasks.
