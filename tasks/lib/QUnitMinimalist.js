@@ -17,7 +17,8 @@ _.extend(QUnitMinimalist.prototype, (function () {
     var failureQueue = [],
         runningCount = 0,
         passCount = 0,
-        failCount = 0;
+        failCount = 0,
+        isPass = true;
 
     function onQunitDone(failed, passed, total, duration) {
         var passRate = (passed / total * 100),
@@ -31,8 +32,8 @@ _.extend(QUnitMinimalist.prototype, (function () {
         process.stdout.clearLine();
         grunt.log.writeln(' ');
         if (failed) {
-            grunt.log.writeln(('Failed ' + failed + ' test(s)!').red);
-
+            grunt.log.warn(('Failed ' + failed + ' test(s)!').red);
+            isPass = false;
             for (; i < len; i++) {
                 grunt.log.writeln(failureQueue[i]);
             }
@@ -51,10 +52,10 @@ _.extend(QUnitMinimalist.prototype, (function () {
             message = message || 'Fail';
             failCount++;
 
-            failureQueue.push('\n \u250c Assertion "' + message + '".');
-            failureQueue.push((' \u251c [Actual]: ').grey + actual.toString().cyan);
-            failureQueue.push((' \u251c [Expected]: ').grey + expected.toString().cyan);
-            failureQueue.push((' \u2514 [Source]: ').grey + source.cyan);
+            failureQueue.push('\n \u250c '.grey + 'Assertion "' + message + '".');
+            failureQueue.push((' \u251c Actual:   ').grey + actual.toString().cyan);
+            failureQueue.push((' \u251c Expected: ').grey + expected.toString().cyan);
+            failureQueue.push((' \u2514 Source: ').grey + source.cyan);
         }
         else {
             passCount++;
@@ -116,7 +117,7 @@ _.extend(QUnitMinimalist.prototype, (function () {
                     grunt.fatal(er.message);
                 }
 
-                markTaskComplete();
+                markTaskComplete(isPass);
             }
         
             return {
