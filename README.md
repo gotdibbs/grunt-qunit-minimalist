@@ -22,7 +22,7 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-qunit-minimalist');
 ```
 
-## The "qunit_minimalist" task
+## The "qunit-minimalist" task
 
 ### Overview
 In your project's Gruntfile, add a section named `qunit-minimalist` to the data object passed into `grunt.initConfig()`.
@@ -64,7 +64,7 @@ Default value: `{ }`
 An object representing options to be passed to `grunt-lib-phantomjs` and thus subsequently to `phantomjs`.
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using `npm test` before submitting a pull request.
 
 ## License
 This library is licensed under the MIT License. Portions of this code were taken and/or inspired by the [grunt-contrib-qunit](https://github.com/gruntjs/grunt-contrib-qunit) and the [grunt-qunit-serverless](https://github.com/jgable/grunt-qunit-serverless) tasks.
