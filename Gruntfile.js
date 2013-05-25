@@ -3,10 +3,10 @@ module.exports = function defineExports(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         jshint: {
-            all: ['tasks/**/*.js'],
             options: {
                 jshintrc: '.jshintrc'
-            }
+            },
+            all: ['tasks/**/*.js']
         },
         
         nodeunit: {

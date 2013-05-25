@@ -6,6 +6,7 @@ var grunt = require('grunt'),
 
 var QUnitMinimalist = function QUnitMinimalist(task, phantomjs) {
     this.setOptions(task);
+    this.src = task.filesSrc ? task.filesSrc[0] : null;
     this.async = task.async;
     this.phantomjs = phantomjs;
 };
@@ -80,7 +81,6 @@ _.extend(QUnitMinimalist.prototype, (function () {
 
     function setOptions(task) {
         this.options = task.options({
-            page: null,
             parameters: null,
             phantomOptions: { }
         });
@@ -92,8 +92,8 @@ _.extend(QUnitMinimalist.prototype, (function () {
             phantomjs = self.phantomjs,
             markTaskComplete = this.async();
             
-        if (!options.page) {
-            grunt.fatal('Path to unit test host page was not specified.');
+        if (!self.src) {
+            grunt.fatal('Path to unit test host page was not specified, please use the "src" grunt parameter.');
         }
 
         if (!options.phantomOptions.inject) {
@@ -101,7 +101,7 @@ _.extend(QUnitMinimalist.prototype, (function () {
         }
 
         if (options.parameters) {
-            options.page += (options.page.indexOf('?') === -1 ? '?' : '&') + options.parameters;
+            self.src += (self.src.indexOf('?') === -1 ? '?' : '&') + options.parameters;
         }
         
         phantomjs.on('qunit.done', onQunitDone.bind(self));
@@ -109,7 +109,7 @@ _.extend(QUnitMinimalist.prototype, (function () {
         phantomjs.on('fail.load', onFailLoad.bind(self));
         phantomjs.on('fail.timeout', onFailTimeout.bind(self));
         
-        phantomjs.spawn(options.page, (function () {
+        phantomjs.spawn(self.src, (function () {
         
             function done(er) {
                 if (er) {

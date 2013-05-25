@@ -1,7 +1,7 @@
 {
   "name": "grunt-qunit-minimalist",
   "description": "Minimalist phantomjs-based qunit test runner.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/gotdibbs/grunt-qunit-minimalist",
   "author": {
     "name": "William H. Dibbern III",

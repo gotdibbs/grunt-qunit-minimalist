@@ -30,14 +30,14 @@ In your project's Gruntfile, add a section named `qunit-minimalist` to the data 
 ```js
 grunt.initConfig({
     'qunit-minimalist': {
-        all: {
-            options: {
-                page: path.join('test', 'UnitTestHost.html'),
-                parameters: 'noglobals=true',
-                phantomOptions: {
-                    '--web-security': false
-                }
+		options: {
+            parameters: 'noglobals=true',
+            phantomOptions: {
+                '--web-security': false
             }
+        },
+        all: {
+			src: [path.join('test', 'UnitTestHost.html')]
         }
     },
 })
@@ -45,11 +45,11 @@ grunt.initConfig({
 
 ### Options
 
-#### options.page
-Type: `String`
+#### src
+Type: `Array [string]`
 Default value: `null`
 
-A string value that represents the location of the unit test host page.
+A single-value array that represents the location of the unit test host page to be run.
 
 #### options.parameters
 Type: `String`
@@ -61,7 +61,7 @@ A string value that represents the parameters to be passed to the host page such
 Type: `Object`
 Default value: `{ }`
 
-An object representing options to be passed to `grunt-lib-phantomjs` and thus subsequently to `phantomjs`.
+An object representing options to be passed to `grunt-lib-phantomjs` and thus subsequently to `phantomjs`. This can include things like `--web-security` and `timeout`.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using `npm test` before submitting a pull request.
