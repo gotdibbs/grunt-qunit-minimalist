@@ -30,7 +30,9 @@ _.extend(QUnitMinimalist.prototype, (function () {
 
         this.phantomjs.halt();
 
-        process.stdout.clearLine();
+        if (process.stdout.clearLine) {
+            process.stdout.clearLine();
+        }
         grunt.log.writeln(' ');
         if (failed) {
             grunt.log.warn(('Failed ' + failed + ' test(s)!').red);
@@ -62,11 +64,13 @@ _.extend(QUnitMinimalist.prototype, (function () {
             passCount++;
         }
 
-        process.stdout.clearLine();
-        process.stdout.cursorTo(0);
-        runningCount = (runningCount + 1) % 4;
-        dots = new Array(runningCount + 1).join('.');
-        process.stdout.write('Passed ' + passCount + '/' + (passCount + failCount) + '. Running' + dots);
+        if (process.stdout.clearLine && process.stdout.cursorTo) {
+            process.stdout.clearLine();
+            process.stdout.cursorTo(0);
+            runningCount = (runningCount + 1) % 4;
+            dots = new Array(runningCount + 1).join('.');
+            process.stdout.write('Passed ' + passCount + '/' + (passCount + failCount) + '. Running' + dots);
+        }
     }
     
     function onFailLoad(url) {
