@@ -56,9 +56,9 @@ _.extend(QUnitMinimalist.prototype, (function () {
             failCount++;
 
             failureQueue.push('\n \u250c '.grey + 'Assertion "' + message + '".');
-            failureQueue.push((' \u251c Actual:   ').grey + actual.toString().cyan);
-            failureQueue.push((' \u251c Expected: ').grey + expected.toString().cyan);
-            failureQueue.push((' \u2514 Source: ').grey + source.cyan);
+            failureQueue.push((' \u251c Actual:   ').grey + ((actual) ? actual.toString().cyan : ''));
+            failureQueue.push((' \u251c Expected: ').grey + ((expected) ? expected.toString().cyan : ''));
+            failureQueue.push((' \u2514 Source: ').grey + ((source) ? source.cyan : ''));
         }
         else {
             passCount++;
