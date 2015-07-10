@@ -1,7 +1,7 @@
 {
   "name": "grunt-qunit-minimalist",
   "description": "Minimalist phantomjs-based qunit test runner.",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "homepage": "https://github.com/gotdibbs/grunt-qunit-minimalist",
   "author": {
     "name": "William H. Dibbern III",
@@ -26,13 +26,13 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-nodeunit": "~0.1.2",
-    "grunt-contrib-jshint": "~0.1.1",
-    "grunt-lib-phantomjs": "~0.3.0"
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-lib-phantomjs": "^0.7.0"
   },
   "dependencies": {
     "grunt": "~0.4.1",
-    "grunt-lib-phantomjs": "~0.3.0"
+    "grunt-lib-phantomjs": "^0.7.0"
   },
   "peerDependencies": {
     "grunt": "~0.4.1"
