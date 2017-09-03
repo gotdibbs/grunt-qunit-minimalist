@@ -1,3 +1,5 @@
+:no_entry: [NOT MAINTAINED] I no longer have use for this plugin and so my time and efforts have been refocused elsewhere. I'd be happy to transition this repo to someone else if desired, or accept pull requests as needed. Otherwise, this repo will be left active for historical purposes.
+
 # grunt-qunit-minimalist [![Build Status](https://travis-ci.org/gotdibbs/grunt-qunit-minimalist.png?branch=master)](https://travis-ci.org/gotdibbs/grunt-qunit-minimalist)
 
 > Minimalist phantomjs-based qunit test runner. Runs your QUnit test host page without depending on a server like `connect`, also keeps results displayed in console to a minimum. Only a quick summary and any failures are reported.
